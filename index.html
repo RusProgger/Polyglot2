@@ -346,8 +346,8 @@
         <section class="page-section" id="contact">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Contact Us</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading text-uppercase">Зв’яжіться з нами</h2>
+                    <h3 class="section-subheading text-muted">Залиште заявку, і ми зв’яжемося з вами, щоб обговорити деталі вашого замовлення.</h3>
                 </div>
                 <!-- * * * * * * * * * * * * * * *-->
                 <!-- * * SB Forms Contact Form * *-->
@@ -361,26 +361,49 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <!-- Name input-->
-                                <input class="form-control" id="name" type="text" placeholder="Your Name *" data-sb-validations="required" />
-                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                                <input class="form-control" id="name" type="text" placeholder="Введіть ваше ім'я: *" data-sb-validations="required" />
+                                <div class="invalid-feedback" data-sb-feedback="name:required"> Потрібно вказати ім’я.</div>
                             </div>
                             <div class="form-group">
                                 <!-- Email address input-->
-                                <input class="form-control" id="email" type="email" placeholder="Your Email *" data-sb-validations="required,email" />
-                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                                <input class="form-control" id="email" type="email" placeholder="Введіть свiй email: *" data-sb-validations="required,email" />
+                                <div class="invalid-feedback" data-sb-feedback="email:required">Потрібно вказати електронну адресу.</div>
+                                <div class="invalid-feedback" data-sb-feedback="email:email">Електронна адреса недійсна.</div>
                             </div>
                             <div class="form-group mb-md-0">
                                 <!-- Phone number input-->
-                                <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" data-sb-validations="required" />
-                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                                <!-- <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" data-sb-validations="required" />
+                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div> -->
+
+                                <div class="input-group">
+                                    <span class="input-group-text">+380</span>
+                                        <input
+                                            class="form-control"
+                                            id="phone"
+                                            type="tel"
+                                            placeholder="501234567"
+                                            maxlength="9"
+                                            pattern="[0-9]{9}"
+                                            data-sb-validations="required"
+                                            required
+                                        />
+                                </div>
+
+                                <div
+                                    class="invalid-feedback"
+                                    data-sb-feedback="phone:required"
+                                >
+                                    Потрібно вказати номер телефону.
+                                </div>
+
                             </div>
+
                         </div>
                         <div class="col-md-6">
                             <div class="form-group form-group-textarea mb-md-0">
                                 <!-- Message input-->
-                                <textarea class="form-control" id="message" placeholder="Your Message *" data-sb-validations="required"></textarea>
-                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                                <textarea class="form-control" id="message" placeholder="Ваше повідомлення: *" data-sb-validations="required"></textarea>
+                                <div class="invalid-feedback" data-sb-feedback="message:required">Потрібно вказати повідомлення.</div>
                             </div>
                         </div>
                     </div>
@@ -390,19 +413,17 @@
                     <!-- has successfully submitted-->
                     <div class="d-none" id="submitSuccessMessage">
                         <div class="text-center text-white mb-3">
-                            <div class="fw-bolder">Form submission successful!</div>
-                            To activate this form, sign up at
+                            <div class="fw-bolder"> Форму успішно надіслано!</div>
                             <br />
-                            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
                         </div>
                     </div>
                     <!-- Submit error message-->
                     <!---->
                     <!-- This is what your users will see when there is-->
                     <!-- an error submitting the form-->
-                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Помилка під час надсилання повідомлення!</div></div>
                     <!-- Submit Button-->
-                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Send Message</button></div>
+                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Надіслати повідомлення</button></div>
                 </form>
             </div>
         </section>
@@ -419,14 +440,17 @@
                             <i class="fab fa-instagram"></i>
                         </a>
 
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook">
+                        <!-- <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook">
                             <i class="fab fa-facebook-f"></i>
-                        </a>
+                        </a> -->
 
                         <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Telegram">
                             <i class="fab fa-telegram-plane"></i>
                         </a>
-
+                        
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
     </div>
 </div>
 
@@ -652,5 +676,23 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+        <!-- Clear Forms-->
+        <script>
+            const form = document.getElementById("contactForm");
+            const successMessage = document.getElementById("submitSuccessMessage");
+
+            const observer = new MutationObserver(() => {
+                if (!successMessage.classList.contains("d-none")) {
+                    form.reset();
+                }
+            });
+
+            observer.observe(successMessage, {
+                attributes: true,
+                attributeFilter: ["class"]
+            });
+        </script>
+
     </body>
 </html>
