@@ -9,13 +9,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const prevButton = document.querySelector(".reviews-prev");
     const nextButton = document.querySelector(".reviews-next");
     const dotsContainer = document.querySelector(".reviews-dots");
+    const slider = document.querySelector(".reviews-slider");
 
     if (!track || !slides.length) return;
 
     let currentIndex = 0;
     let autoplay;
 
+    // Время между автоматическими переключениями
+    const AUTOPLAY_DELAY = 7000;
+
     function getSlidesPerView() {
+
         if (window.innerWidth < 768) {
             return 1;
         }
@@ -44,11 +49,17 @@ document.addEventListener("DOMContentLoaded", function () {
             dot.classList.add("review-dot");
 
             dot.type = "button";
-            dot.setAttribute("aria-label", `Відкрити відгуки ${i + 1}`);
+            dot.setAttribute(
+                "aria-label",
+                `Відкрити групу відгуків ${i + 1}`
+            );
 
             dot.addEventListener("click", function () {
+
                 currentIndex = i;
+
                 updateSlider();
+
                 restartAutoplay();
             });
 
@@ -73,10 +84,12 @@ document.addEventListener("DOMContentLoaded", function () {
         const dots = document.querySelectorAll(".review-dot");
 
         dots.forEach((dot, index) => {
+
             dot.classList.toggle(
                 "active",
                 index === currentIndex
             );
+
         });
     }
 
@@ -107,42 +120,85 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function startAutoplay() {
-        autoplay = setInterval(nextSlide, 5000);
+
+        stopAutoplay();
+
+        autoplay = setInterval(function () {
+            nextSlide();
+        }, AUTOPLAY_DELAY);
     }
 
     function stopAutoplay() {
-        clearInterval(autoplay);
+
+        if (autoplay) {
+            clearInterval(autoplay);
+            autoplay = null;
+        }
     }
 
     function restartAutoplay() {
+
         stopAutoplay();
+
         startAutoplay();
     }
 
+
+    /* ===============================
+       BUTTONS
+       =============================== */
+
     nextButton.addEventListener("click", function () {
+
         nextSlide();
+
         restartAutoplay();
+
     });
 
     prevButton.addEventListener("click", function () {
+
         prevSlide();
+
         restartAutoplay();
+
     });
 
-    /* Pause when mouse is over slider */
-    const slider = document.querySelector(".reviews-slider");
 
-    slider.addEventListener("mouseenter", stopAutoplay);
-    slider.addEventListener("mouseleave", startAutoplay);
+    /* ===============================
+       PAUSE ON HOVER
+       =============================== */
 
-    /* Recalculate after resize */
+    slider.addEventListener("mouseenter", function () {
+        stopAutoplay();
+    });
+
+    slider.addEventListener("mouseleave", function () {
+        startAutoplay();
+    });
+
+
+    /* ===============================
+       RESIZE
+       =============================== */
+
     window.addEventListener("resize", function () {
+
         createDots();
+
         updateSlider();
+
     });
+
+
+    /* ===============================
+       START
+       =============================== */
 
     createDots();
+
     updateSlider();
+
     startAutoplay();
 
 });
