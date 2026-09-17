@@ -11045,6 +11045,249 @@ header.masthead .masthead-heading {
 } */
 
 
+/* Reviews slider */
+
+/* =========================================
+   REVIEWS SLIDER
+   ========================================= */
+
+.reviews-section {
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.reviews-slider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.reviews-track-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.reviews-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.review-slide {
+    flex: 0 0 33.333333%;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.review-card {
+    height: 100%;
+    padding: 35px 30px;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #eeeeee;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.10);
+}
+
+.review-stars {
+    color: #ffc800;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.review-text {
+    color: #6c757d;
+    font-family: "Roboto Slab", serif;
+    font-size: 15px;
+    line-height: 1.8;
+    flex-grow: 1;
+    margin-bottom: 25px;
+}
+
+.review-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-top: 1px solid #eeeeee;
+    padding-top: 20px;
+}
+
+.review-avatar {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 50%;
+    background: #ffc800;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.review-name {
+    color: #212529;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.review-role {
+    color: #999;
+    font-size: 12px;
+}
+
+.reviews-arrow {
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+    border: none;
+    border-radius: 50%;
+    background: #ffc800;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.reviews-arrow:hover {
+    background: #e5b300;
+    transform: scale(1.08);
+}
+
+.reviews-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 25px;
+}
+
+.review-dot {
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: #d8d8d8;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.review-dot.active {
+    width: 25px;
+    border-radius: 10px;
+    background: #ffc800;
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 991.98px) {
+
+    .review-slide {
+        flex: 0 0 50%;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 767.98px) {
+
+    .reviews-slider {
+        gap: 5px;
+    }
+
+    .review-slide {
+        flex: 0 0 100%;
+        padding: 10px 5px;
+    }
+
+    .review-card {
+        padding: 30px 25px;
+    }
+
+    .reviews-arrow {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        font-size: 13px;
+    }
+
+    .review-text {
+        font-size: 14px;
+    }
+
+}
+
+
+/* =========================================
+                  TABLET
+   ========================================= */
+
+@media (max-width: 991.98px) {
+
+    .review-slide {
+        flex: 0 0 50%;
+    }
+
+}
+
+
+/* =========================================
+                  MOBILE
+   ========================================= */
+
+@media (max-width: 767.98px) {
+
+    .reviews-slider {
+        gap: 5px;
+    }
+
+    .review-slide {
+        flex: 0 0 100%;
+        padding: 10px 5px;
+    }
+
+    .review-card {
+        padding: 30px 25px;
+    }
+
+    .reviews-arrow {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        font-size: 13px;
+    }
+
+    .review-text {
+        font-size: 14px;
+    }
+
+}
+
+
+/* end reviews slider */
+
+
 .lang-caption {
   font-style: italic;
   font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
