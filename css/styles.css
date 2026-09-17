@@ -12037,7 +12037,360 @@ section#contact .section-heading {
 }
 
 
+/* Callback */
 
+/* =========================================
+   CALLBACK MODAL
+   ========================================= */
+
+.callback-modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 99999;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+.callback-modal.active {
+    display: flex;
+}
+
+
+/* Затемнение */
+
+.callback-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    backdrop-filter: blur(5px);
+}
+
+
+/* Окно */
+
+.callback-window {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+    max-width: 460px;
+
+    padding: 45px 40px 40px;
+
+    background: #fff;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.25);
+
+    animation: callbackShow 0.35s ease;
+}
+
+
+@keyframes callbackShow {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* Закрыть */
+
+.callback-close {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f5f5f5;
+
+    color: #777;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    transition: all 0.2s ease;
+}
+
+
+.callback-close:hover {
+    background: #ffc800;
+
+    color: #fff;
+
+    transform: rotate(90deg);
+}
+
+
+/* Иконка */
+
+.callback-icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 75px;
+    height: 75px;
+
+    margin: 0 auto 22px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 200, 0, 0.13);
+
+    color: #ffc800;
+
+    font-size: 28px;
+}
+
+
+/* Заголовок */
+
+.callback-window h2 {
+    margin-bottom: 12px;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 27px;
+    font-weight: 700;
+
+    color: #212529;
+}
+
+
+/* Текст */
+
+.callback-text {
+    max-width: 350px;
+
+    margin: 0 auto 25px;
+
+    font-family: "Roboto Slab", serif;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    color: #6c757d;
+}
+
+
+/* Телефон */
+
+.callback-phone {
+    display: flex;
+
+    align-items: center;
+
+    width: 100%;
+
+    margin-bottom: 15px;
+
+    border: 1px solid #ced4da;
+
+    border-radius: 8px;
+
+    background: #fff;
+
+    overflow: hidden;
+
+    transition: border-color 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+
+.callback-phone:focus-within {
+    border-color: #ffc800;
+
+    box-shadow:
+        0 0 0 3px rgba(255, 200, 0, 0.15);
+}
+
+
+.callback-phone span {
+    display: flex;
+
+    align-items: center;
+
+    height: 55px;
+
+    padding: 0 15px;
+
+    background: #f8f9fa;
+
+    border-right: 1px solid #ced4da;
+
+    color: #495057;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-weight: 600;
+}
+
+
+.callback-phone input {
+    width: 100%;
+
+    height: 55px;
+
+    padding: 0 15px;
+
+    border: none;
+
+    outline: none;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 16px;
+
+    color: #212529;
+}
+
+
+.callback-phone input::placeholder {
+    color: #adb5bd;
+}
+
+
+/* Кнопка */
+
+.callback-button {
+    width: 100%;
+
+    min-height: 55px;
+
+    border-radius: 8px;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-weight: 700;
+
+    transition: all 0.2s ease;
+}
+
+
+.callback-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 18px rgba(255, 200, 0, 0.3);
+}
+
+
+/* Успешная отправка */
+
+.callback-success {
+    display: none;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding-top: 10px;
+
+    color: #198754;
+}
+
+
+.callback-success.active {
+    display: flex;
+}
+
+
+.callback-success i {
+    margin-bottom: 5px;
+
+    font-size: 45px;
+}
+
+
+.callback-success strong {
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 20px;
+}
+
+
+.callback-success span {
+    max-width: 300px;
+
+    color: #6c757d;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 575px) {
+
+    .callback-modal {
+        padding: 15px;
+    }
+
+    .callback-window {
+        max-width: 100%;
+
+        padding: 40px 22px 25px;
+
+        border-radius: 16px;
+    }
+
+    .callback-icon {
+        width: 65px;
+        height: 65px;
+
+        margin-bottom: 18px;
+
+        font-size: 24px;
+    }
+
+    .callback-window h2 {
+        font-size: 23px;
+    }
+
+    .callback-text {
+        font-size: 13px;
+    }
+
+}
 
 
 .footer {
