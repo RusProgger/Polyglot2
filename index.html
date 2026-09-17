@@ -783,6 +783,70 @@
 
             </div>
         </section>
+
+        <!-- Callback Modal -->
+        <div class="callback-modal" id="callbackModal">
+
+            <div class="callback-overlay"></div>
+
+            <div class="callback-window">
+
+                <button
+                    type="button"
+                    class="callback-close"
+                    id="callbackClose"
+                    aria-label="Закрити"
+                >
+                    <i class="fas fa-times"></i>
+                </button>
+
+                <div class="callback-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+
+                <h2>Є питання?</h2>
+
+                <p class="callback-text">
+                    Залиште свій номер телефону —
+                    ми вам перетелефонуємо та відповімо на всі запитання.
+                </p>
+
+                <form id="callbackForm">
+                    <div class="callback-phone">
+                        <span>+380</span>
+                        <input
+                            type="tel"
+                            id="callbackPhone"
+                            placeholder="50 123 45 67"
+                            maxlength="9"
+                            pattern="[0-9]{9}"
+                            inputmode="numeric"
+                            required>
+                    </div>
+                    <button
+                        type="submit"
+                        class="btn btn-primary callback-button">
+                        Передзвоніть мені
+                    </button>
+                </form>
+
+                <div
+                    class="callback-success"
+                    id="callbackSuccess">
+                    <i class="fas fa-check-circle"></i>
+
+                    <strong>Дякуємо!</strong>
+
+                    <span>
+                        Ми отримали ваш номер та скоро вам перетелефонуємо.
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+
+
         <!-- Footer-->
         <footer class="footer py-4">
             <div class="container">
@@ -807,10 +871,9 @@
                         <a class="btn btn-dark btn-social mx-2" href="mailto:juliaads22@gmail.com" aria-label="Email" target="_blank" title="Написати нам">
                             <i class="fas fa-envelope"></i>
                         </a>
-    </div>
-</div>
-        </div>
-
+                    </div>
+                </div>
+            </div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -819,6 +882,7 @@
         <!-- <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script> -->
         <script src="js/review.js"></script>
         <script src="js/contacts.js"></script>
+        <script src="js/callback.js"></script>
     
     </body>
 </html>
