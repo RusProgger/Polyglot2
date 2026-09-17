@@ -481,12 +481,7 @@
                                     </div>
                                 </div>
                             </div>
-
-
-
-
-
-
+                            
                         </div>
                     </div>
 
@@ -508,75 +503,131 @@
                     <h3 class="section-subheading">Залиште заявку, і ми зв’яжемося з вами, щоб обговорити деталі вашого замовлення.</h3>
                 </div>
                 <!-- form -->
-                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                    <div class="row align-items-stretch mb-5">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <!-- Name input-->
-                                <input class="form-control" id="name" type="text" placeholder="Введіть ваше ім'я: *" data-sb-validations="required" />
-                                <div class="invalid-feedback" data-sb-feedback="name:required"> Потрібно вказати ім’я.</div>
-                            </div>
-                            <div class="form-group">
-                                <!-- Email address input-->
-                                <input class="form-control" id="email" type="email" placeholder="Введіть свiй email: *" data-sb-validations="required,email" />
-                                <div class="invalid-feedback" data-sb-feedback="email:required">Потрібно вказати електронну адресу.</div>
-                                <div class="invalid-feedback" data-sb-feedback="email:email">Електронна адреса недійсна.</div>
-                            </div>
-                            <div class="form-group mb-md-0">
-                                <!-- Phone number input-->
-                                <!-- <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" data-sb-validations="required" />
-                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div> -->
+                
+                <form id="contactForm">
 
-                                <div class="input-group">
-                                    <span class="input-group-text">+380</span>
-                                        <input
-                                            class="form-control"
-                                            id="phone"
-                                            type="tel"
-                                            placeholder="501234567"
-                                            maxlength="9"
-                                            pattern="[0-9]{9}"
-                                            data-sb-validations="required"
-                                            required
-                                        />
-                                </div>
+                    <div class="simple-contact-form">
 
-                                <div
-                                    class="invalid-feedback"
-                                    data-sb-feedback="phone:required"
+                        <div class="simple-field">
+                            <label for="name">Ваше ім’я</label>
+
+                            <input
+                                id="name"
+                                type="text"
+                                placeholder="Введіть ваше ім’я"
+                                required
+                            >
+
+                            <div class="simple-error">
+                                Потрібно вказати ім’я.
+                            </div>
+                        </div>
+
+                        <div class="simple-field">
+                            <label for="email">Email</label>
+
+                            <input
+                                id="email"
+                                type="email"
+                                placeholder="example@gmail.com"
+                                required
+                            >
+
+                            <div class="simple-error">
+                                Введіть коректну електронну адресу.
+                            </div>
+                        </div>
+
+                        <div class="simple-field">
+                            <label for="phone">Номер телефону</label>
+
+                            <div class="simple-phone">
+
+                                <span>+380</span>
+
+                                <input
+                                    id="phone"
+                                    type="tel"
+                                    placeholder="501234567"
+                                    maxlength="9"
+                                    inputmode="numeric"
+                                    required
                                 >
-                                    Потрібно вказати номер телефону.
-                                </div>
 
                             </div>
 
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group form-group-textarea mb-md-0">
-                                <!-- Message input-->
-                                <textarea class="form-control" id="message" placeholder="Ваше повідомлення: *" data-sb-validations="required"></textarea>
-                                <div class="invalid-feedback" data-sb-feedback="message:required">Потрібно вказати повідомлення.</div>
+                            <div class="simple-error">
+                                Введіть номер телефону з 9 цифр.
                             </div>
                         </div>
-                    </div>
-                    <!-- Submit success message-->
-                    <!---->
-                    <!-- This is what your users will see when the form-->
-                    <!-- has successfully submitted-->
-                    <div class="d-none" id="submitSuccessMessage">
-                        <div class="text-center text-white mb-3">
-                            <div class="fw-bolder"> Форму успішно надіслано!</div>
-                            <br />
+
+                        <div class="simple-field">
+                            <label for="message">Ваше повідомлення</label>
+
+                            <textarea
+                                id="message"
+                                placeholder="Напишіть ваше повідомлення..."
+                                required
+                            ></textarea>
+
+                            <div class="simple-error">
+                                Потрібно вказати повідомлення.
+                            </div>
                         </div>
+
+
+                        <div class="simple-submit">
+                            <button
+                                id="submitButton"
+                                type="submit"
+                                class="btn btn-primary btn-xl text-uppercase"
+                            >
+                                Надіслати повідомлення
+                            </button>
+                        </div>
+
                     </div>
-                    <!-- Submit error message-->
-                    <!---->
-                    <!-- This is what your users will see when there is-->
-                    <!-- an error submitting the form-->
-                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Помилка під час надсилання повідомлення!</div></div>
-                    <!-- Submit Button-->
-                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Надіслати повідомлення</button></div>
+
                 </form>
+
+                <!-- Modal-->
+
+                <div class="success-modal" id="successModal">
+
+                    <div class="success-modal-overlay"></div>
+
+                    <div class="success-modal-content">
+
+                        <button
+                            type="button"
+                            class="success-modal-close"
+                            id="successModalClose"
+                        >
+                            ×
+                        </button>
+
+                        <div class="success-icon">
+                            ✓
+                        </div>
+
+                        <h3>Повідомлення надіслано!</h3>
+
+                        <p>
+                            Дякуємо за звернення.<br>
+                            Ми зв’яжемося з вами найближчим часом.
+                        </p>
+
+                        <button
+                            type="button"
+                            class="btn btn-primary"
+                            id="successModalOk">
+                            Добре
+                        </button>
+
+                    </div>
+
+                </div>
+
             </div>
         </section>
         <!-- Footer-->
@@ -588,7 +639,7 @@
                     </div>
 
                     <div class="col-lg-6 text-lg-end my-3 my-lg-0">
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Instagram">
+                        <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/polyglot.2.0/" aria-label="Instagram" target="_blank" title="написати у Інстаграм">
                             <i class="fab fa-instagram"></i>
                         </a>
 
@@ -596,11 +647,11 @@
                             <i class="fab fa-facebook-f"></i>
                         </a> -->
 
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Telegram">
+                        <a class="btn btn-dark btn-social mx-2" href="https://t.me/juldev2" target="_blank" title="написати у Telegram" aria-label="Telegram">
                             <i class="fab fa-telegram-plane"></i>
                         </a>
                         
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Email">
+                        <a class="btn btn-dark btn-social mx-2" href="mailto:juliaads22@gmail.com" aria-label="Email" target="_blank" title="Написати нам">
                             <i class="fas fa-envelope"></i>
                         </a>
     </div>
@@ -614,23 +665,7 @@
         <script src="js/scripts.js"></script>
         <!-- <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script> -->
         <script src="js/review.js"></script>
-
-        <!-- Clear Forms-->
-        <script>
-            const form = document.getElementById("contactForm");
-            const successMessage = document.getElementById("submitSuccessMessage");
-
-            const observer = new MutationObserver(() => {
-                if (!successMessage.classList.contains("d-none")) {
-                    form.reset();
-                }
-            });
-
-            observer.observe(successMessage, {
-                attributes: true,
-                attributeFilter: ["class"]
-            });
-        </script>
-
+        <script src="js/contacts.js"></script>
+    
     </body>
 </html>
