@@ -10,80 +10,194 @@ document.addEventListener("DOMContentLoaded", function () {
     const success = document.getElementById("callbackSuccess");
 
 
-    /* Показываем окно через 1.2 секунды */
+    // Открытие модального окна через 1.2 секунды
 
     setTimeout(function () {
-        modal.classList.add("active");
+
+        if (modal) {
+            modal.classList.add("active");
+        }
+
     }, 1200);
 
 
-    /* Закрытие */
+
+    // Закрытие модального окна
 
     function closeModal() {
+
         modal.classList.remove("active");
+
     }
 
-    closeButton.addEventListener("click", closeModal);
 
-    overlay.addEventListener("click", closeModal);
+    if (closeButton) {
+
+        closeButton.addEventListener(
+            "click",
+            closeModal
+        );
+
+    }
 
 
-    /* Закрытие клавишей Escape */
+    if (overlay) {
 
-    document.addEventListener("keydown", function (event) {
+        overlay.addEventListener(
+            "click",
+            closeModal
+        );
 
-        if (event.key === "Escape") {
-            closeModal();
+    }
+
+
+
+    // Закрытие клавишей Escape
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (event.key === "Escape") {
+
+                closeModal();
+
+            }
+
         }
-
-    });
-
-
-    /* Только цифры */
-
-    phone.addEventListener("input", function () {
-
-        this.value = this.value.replace(/\D/g, "");
-
-    });
+    );
 
 
-    /* Отправка */
 
-    form.addEventListener("submit", function (event) {
+    // Только цифры телефона
 
-        event.preventDefault();
+    phone.addEventListener(
+        "input",
+        function () {
 
-        if (phone.value.length !== 9) {
+            this.value = this.value
+                .replace(/\D/g, "")
+                .slice(0, 9);
 
-            phone.focus();
-
-            return;
         }
+    );
 
 
-        /*
-         * Здесь позже можно подключить
-         * отправку номера на сервер / Telegram / email.
-         */
 
-        form.style.display = "none";
+    // Отправка формы
 
-        success.classList.add("active");
+    form.addEventListener(
+        "submit",
+        async function (event) {
 
 
-        /* Закрываем через 3 секунды */
+            event.preventDefault();
 
-        setTimeout(function () {
-            closeModal();
 
-            form.style.display = "";
-            success.classList.remove("active");
 
-            phone.value = "";
+            if (phone.value.length !== 9) {
 
-        }, 3000);
+                phone.focus();
 
-    });
+                return;
+
+            }
+
+
+
+            const formData = new FormData(form);
+
+
+
+            try {
+
+
+                const response = await fetch(
+                    "send-callback.php",
+                    {
+                        method: "POST",
+                        body: formData
+                    }
+                );
+
+
+
+                const result = await response.text();
+
+
+
+                console.log(result);
+
+
+
+                if (result.trim() === "success") {
+
+
+
+                    form.style.display = "none";
+
+
+                    success.classList.add("active");
+
+
+
+                    setTimeout(function () {
+
+
+                        closeModal();
+
+
+                        form.style.display = "";
+
+
+                        success.classList.remove("active");
+
+
+                        form.reset();
+
+
+
+                    }, 3000);
+
+
+
+                } else {
+
+
+                    alert(
+                        "Помилка відправки заявки"
+                    );
+
+
+                    console.log(
+                        "Ответ PHP:",
+                        result
+                    );
+
+
+                }
+
+
+
+            } catch (error) {
+
+
+                console.error(
+                    "Ошибка:",
+                    error
+                );
+
+
+                alert(
+                    "Не вдалося відправити заявку"
+                );
+
+
+            }
+
+
+        }
+    );
+
 
 });
