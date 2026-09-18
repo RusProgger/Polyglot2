@@ -11,117 +11,171 @@ document.addEventListener("DOMContentLoaded", function () {
     const phoneInput = document.getElementById("phone");
     const messageInput = document.getElementById("message");
 
+    const submitButton = document.getElementById("submitButton");
+
+
+    // -------------------------
+    // Ошибка поля
+    // -------------------------
 
     function setInvalid(input, invalid) {
 
-        const field = input.closest(".contact-field");
+        const field = input.closest(".simple-field");
 
         if (!field) return;
 
         field.classList.toggle("is-invalid", invalid);
-
     }
 
+
+    // -------------------------
+    // Проверка формы
+    // -------------------------
 
     function validateForm() {
 
         let valid = true;
 
-
-        // Name
+        // Имя
         if (nameInput.value.trim().length < 2) {
 
             setInvalid(nameInput, true);
-
             valid = false;
 
         } else {
 
             setInvalid(nameInput, false);
-
         }
 
 
         // Email
-        const emailPattern =
-            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (!emailPattern.test(emailInput.value.trim())) {
 
             setInvalid(emailInput, true);
-
             valid = false;
 
         } else {
 
             setInvalid(emailInput, false);
-
         }
 
 
-        // Phone
+        // Телефон
         const phonePattern = /^[0-9]{9}$/;
 
         if (!phonePattern.test(phoneInput.value.trim())) {
 
             setInvalid(phoneInput, true);
-
             valid = false;
 
         } else {
 
             setInvalid(phoneInput, false);
-
         }
 
 
-        // Message
+        // Сообщение
         if (messageInput.value.trim().length < 5) {
 
             setInvalid(messageInput, true);
-
             valid = false;
 
         } else {
 
             setInvalid(messageInput, false);
-
         }
 
 
         return valid;
-
     }
 
 
-    /* Submit */
+    // -------------------------
+    // Отправка формы
+    // -------------------------
 
-    form.addEventListener("submit", function (event) {
+    form.addEventListener("submit", async function (event) {
 
         event.preventDefault();
 
 
+        // Проверяем форму
         if (!validateForm()) {
             return;
         }
 
 
-        // Здесь форма прошла проверку
-        successModal.classList.add("active");
+        // Блокируем кнопку
+        submitButton.disabled = true;
+        submitButton.textContent = "Надсилання...";
 
-        document.body.style.overflow = "hidden";
+
+        try {
+
+            const formData = new FormData(form);
+
+            const response = await fetch("form-send.php", {
+                method: "POST",
+                body: formData
+            });
+
+
+            const result = await response.text();
+
+
+            console.log("Ответ PHP:", result);
+
+
+            // PHP должен вернуть success
+            if (result.trim() === "success") {
+
+                successModal.classList.add("active");
+
+                document.body.style.overflow = "hidden";
+
+                form.reset();
+
+            } else {
+
+                alert(
+                    "Не вдалося надіслати повідомлення.\n\n" +
+                    "Спробуйте ще раз."
+                );
+
+                console.error("PHP error:", result);
+            }
+
+
+        } catch (error) {
+
+            console.error("Ошибка отправки:", error);
+
+            alert(
+                "Сталася помилка під час надсилання.\n\n" +
+                "Спробуйте ще раз."
+            );
+
+        } finally {
+
+            submitButton.disabled = false;
+            submitButton.textContent = "Надіслати повідомлення";
+
+        }
 
     });
 
 
-    /* Close modal */
+    // -------------------------
+    // Закрытие модального окна
+    // -------------------------
 
     function closeModal() {
 
         successModal.classList.remove("active");
 
         document.body.style.overflow = "";
-
     }
 
 
@@ -133,17 +187,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     successModalOk.addEventListener(
         "click",
-        function () {
-
-            closeModal();
-
-            form.reset();
-
-        }
+        closeModal
     );
 
 
-    /* Close by clicking outside */
+    // Закрытие по клику вне окна
 
     successModal.addEventListener(
         "click",
@@ -151,20 +199,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (
                 event.target === successModal ||
-                event.target.classList.contains(
-                    "success-modal-overlay"
-                )
+                event.target.classList.contains("success-modal-overlay")
             ) {
 
                 closeModal();
-
             }
 
         }
     );
 
 
-    /* Escape */
+    // Escape
 
     document.addEventListener(
         "keydown",
@@ -176,20 +221,22 @@ document.addEventListener("DOMContentLoaded", function () {
             ) {
 
                 closeModal();
-
             }
 
         }
     );
 
 
-    /* Remove error when user starts typing */
+    // -------------------------
+    // Убираем ошибку при вводе
+    // -------------------------
 
     [
         nameInput,
         emailInput,
         phoneInput,
         messageInput
+
     ].forEach(function (input) {
 
         input.addEventListener("input", function () {
@@ -201,7 +248,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    /* Only numbers in phone */
+    // -------------------------
+    // Только цифры телефона
+    // -------------------------
 
     phoneInput.addEventListener(
         "input",
