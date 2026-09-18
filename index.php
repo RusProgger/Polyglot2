@@ -876,7 +876,7 @@
                 </div>
                 <!-- form -->
                 
-                <form id="contactForm">
+                <form id="contactForm" action="form-send.php" method="POST">
 
                     <div class="simple-contact-form">
 
