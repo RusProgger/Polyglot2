@@ -2,16 +2,23 @@
    REVIEWS SLIDER
    ========================================= */
 
-document.addEventListener("DOMContentLoaded", function () {
+// Пересчёт слайдера после добавления новых отзывов
+let refreshReviewsSlider = null;
+
+function initReviewsSlider() {
 
     const track = document.querySelector(".reviews-track");
-    const slides = document.querySelectorAll(".review-slide");
     const prevButton = document.querySelector(".reviews-prev");
     const nextButton = document.querySelector(".reviews-next");
     const dotsContainer = document.querySelector(".reviews-dots");
     const slider = document.querySelector(".reviews-slider");
 
-    if (!track || !slides.length) return;
+    // Отзывы могут добавляться динамически — читаем их каждый раз
+    function getSlides() {
+        return document.querySelectorAll(".review-slide");
+    }
+
+    if (!track || !getSlides().length) return;
 
     let currentIndex = 0;
     let autoplay;
@@ -33,9 +40,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function getMaxIndex() {
-        return Math.max(0, slides.length - getSlidesPerView());
-    }
 
+        return Math.max(0, getSlides().length - getSlidesPerView());
+
+    }
     function createDots() {
 
         dotsContainer.innerHTML = "";
@@ -195,10 +203,33 @@ document.addEventListener("DOMContentLoaded", function () {
        START
        =============================== */
 
-    createDots();
+    // Точка входа для обновления из review-form.js
+    refreshReviewsSlider = function () {
 
-    updateSlider();
+        currentIndex = 0;
 
-    startAutoplay();
+        createDots();
+
+        updateSlider();
+
+        restartAutoplay();
+
+    };
+
+    refreshReviewsSlider();
+
+}
+
+
+// Запуск при загрузке страницы
+document.addEventListener("DOMContentLoaded", initReviewsSlider);
+
+
+// Пересчёт после добавления новых отзывов
+document.addEventListener("reviews:updated", function () {
+
+    if (refreshReviewsSlider) {
+        refreshReviewsSlider();
+    }
 
 });
