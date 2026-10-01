@@ -50,6 +50,7 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/upgrade.css" rel="stylesheet" />
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -392,7 +393,7 @@
                                         <div class="review-avatar">О</div>
                                         <div>
                                             <div class="review-name">Олена</div>
-                                            <div class="review-role">Переклад документів</div>
+                                            <div class="review-role">Відгук на сайті</div>
                                         </div>
                                     </div>
                                 </div>
@@ -418,7 +419,7 @@
                                         <div class="review-avatar">А</div>
                                         <div>
                                             <div class="review-name">Андрій</div>
-                                            <div class="review-role">Переклад тексту</div>
+                                            <div class="review-role">Відгук на сайті</div>
                                         </div>
                                     </div>
                                 </div>
@@ -444,7 +445,7 @@
                                         <div class="review-avatar">М</div>
                                         <div>
                                             <div class="review-name">Марія</div>
-                                            <div class="review-role">Переклад документів</div>
+                                            <div class="review-role">Відгук на сайті</div>
                                         </div>
                                     </div>
                                 </div>
@@ -470,7 +471,7 @@
                                         <div class="review-avatar">І</div>
                                         <div>
                                             <div class="review-name">Ірина</div>
-                                            <div class="review-role">Ділове листування</div>
+                                            <div class="review-role">Відгук на сайті</div>
                                         </div>
                                     </div>
                                 </div>
@@ -496,7 +497,7 @@
                                         <div class="review-avatar">Д</div>
                                         <div>
                                             <div class="review-name">Дмитро</div>
-                                            <div class="review-role">Переклад документів</div>
+                                            <div class="review-role">Відгук на сайті</div>
                                         </div>
                                     </div>
                                 </div>
@@ -522,7 +523,7 @@
                                         <div class="review-avatar">В</div>
                                         <div>
                                             <div class="review-name">Вікторія</div>
-                                            <div class="review-role">Переклад матеріалів</div>
+                                            <div class="review-role">Відгук на сайті</div>
                                         </div>
                                     </div>
                                 </div>
@@ -548,7 +549,7 @@
                                         <div class="review-avatar">Н</div>
                                         <div>
                                             <div class="review-name">Наталія</div>
-                                            <div class="review-role">Переклад тексту</div>
+                                            <div class="review-role">Відгук на сайті</div>
                                         </div>
                                     </div>
                                 </div>
@@ -575,7 +576,7 @@
                                         <div class="review-avatar">Т</div>
                                         <div>
                                             <div class="review-name">Тетяна</div>
-                                            <div class="review-role">Переклад документів</div>
+                                            <div class="review-role">Відгук на сайті</div>
                                         </div>
                                     </div>
                                 </div>
@@ -602,7 +603,7 @@
                                         <div class="review-avatar">Р</div>
                                         <div>
                                             <div class="review-name">Роман</div>
-                                            <div class="review-role">Переклад матеріалів</div>
+                                            <div class="review-role">Відгук на сайті</div>
                                         </div>
                                     </div>
                                 </div>
@@ -629,7 +630,7 @@
                                         <div class="review-avatar">В</div>
                                         <div>
                                             <div class="review-name">Володимир</div>
-                                            <div class="review-role">Переклад тексту</div>
+                                            <div class="review-role">Відгук на сайті</div>
                                         </div>
                                     </div>
                                 </div>
@@ -1097,6 +1098,7 @@
         <script src="js/scripts.js"></script>
         <!-- <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script> -->
         <script src="js/review.js"></script>
+        <script src="js/review-form.js"></script>
         <script src="js/contacts.js"></script>
         <script src="js/callback.js"></script>
         <script src="js/faq.js"></script>
