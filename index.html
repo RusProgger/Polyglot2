@@ -50,8 +50,18 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <!-- Upgrade: прелоадер, анімації, ефекти -->
+        <link href="css/upgrade.css" rel="stylesheet" />
     </head>
     <body id="page-top">
+        <!-- Прелоадер -->
+        <div class="preloader" id="preloader" aria-hidden="true">
+            <div class="preloader__logo">Poly<span>glot</span></div>
+            <div class="preloader__bar"><span></span></div>
+        </div>
+
+        <!-- Прогресс прокрутки -->
+        <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
@@ -74,10 +84,17 @@
         </nav>
         <!-- Masthead-->
         <header class="masthead" id="home">
+            <span class="masthead-orb masthead-orb--1" aria-hidden="true"></span>
+            <span class="masthead-orb masthead-orb--2" aria-hidden="true"></span>
+            <div class="masthead-grid" aria-hidden="true"></div>
             <div class="container">
                 <!-- <div class="masthead-subheading">Професійний переклад — якісно, швидко та точно.</div> -->
                 <div class="masthead-heading">Перекладаємо документи, тексти та інші матеріали швидко й професійно.</div>
-                <a class="btn btn-primary btn-xl text-uppercase" href="#contact">Замовити переклад</a>
+                <div class="masthead-actions">
+                    <a class="btn btn-primary btn-xl text-uppercase" href="#contact">Замовити переклад</a>
+                    <a class="btn btn-outline-light btn-xl text-uppercase" href="#lang">Наші мови</a>
+                </div>
+                <span class="masthead-badge">Понад 60 мов світу</span>
             </div>
         </header>
         <!-- Services-->
@@ -196,7 +213,15 @@
                             </div>
                         </div>
                     </div>
-                    <h3 class="text_sub">та ще +60 мов.</h3>
+                    <h3 class="lang-more">
+                        <span class="lang-more__card">
+                            <span class="lang-more__icon" aria-hidden="true"><i class="fas fa-globe"></i></span>
+                            <span class="lang-more__content">
+                                <span class="lang-more__title">та ще <strong>+60</strong> мов світу</span>
+                                <span class="lang-more__subtitle">бізнес · фінанси · медицина · юриспруденція · технічна</span>
+                            </span>
+                        </span>
+                    </h3>
                 </div>
             </div>
         </section>
@@ -351,7 +376,8 @@
                         </div>
                     </div>
 
-                </div> 
+                </div>
+                </div>
         </section>
 
         <!-- Reviews -->
@@ -1104,6 +1130,12 @@
         <script src="js/contacts.js"></script>
         <script src="js/callback.js"></script>
         <script src="js/faq.js"></script>
-    
+        <!-- Upgrade: прелоадер, анимації, лічильники -->
+        <script src="js/upgrade.js"></script>
+
+        <!-- Кнопка «нагору» -->
+        <button class="to-top" id="toTop" type="button" aria-label="Нагору">
+            <i class="fas fa-arrow-up"></i>
+        </button>
     </body>
 </html>
