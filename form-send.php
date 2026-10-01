@@ -32,7 +32,7 @@ if (!preg_match('/^[0-9]{9}$/', $phone)) {
 $phone = '+380' . $phone;
 
 // Куда отправлять письмо
-$to = 'kakoito@mail.com';
+$to = 'juliaads22@gmail.com';
 
 // Тема
 $subject = 'Новая заявка с сайта';
