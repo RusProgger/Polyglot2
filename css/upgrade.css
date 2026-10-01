@@ -1,0 +1,343 @@
+/* ============================================================
+   Polyglot Translate — upgrade.css
+   «Вау»-слой поверх Bootstrap-теми: прелоадер, анімації,
+   ефекти, прогрес прокрутки, кнопка «нагору».
+   Не впливає на логіку форм та PHP.
+   ============================================================ */
+
+:root {
+    --acc: #ffc800;
+    --acc-2: #ff8a00;
+    --grad: linear-gradient(120deg, #ffd700, #ff8a00, #ff5e62);
+}
+
+html { scroll-behavior: smooth; }
+html, body { overflow-x: clip; }
+
+/* ---------- Скролбар ---------- */
+::-webkit-scrollbar { width: 11px; }
+::-webkit-scrollbar-track { background: #141414; }
+::-webkit-scrollbar-thumb { background: linear-gradient(#ffc800, #ff8a00); border-radius: 8px; }
+::selection { background: #ffc800; color: #111; }
+
+/* ---------- Прелоадер ---------- */
+.preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+    display: grid;
+    place-items: center;
+    background: #0f0f10;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+.preloader.is-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.preloader__logo {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 42px;
+    letter-spacing: 0.08em;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: preloaderPulse 1.4s ease-in-out infinite;
+}
+@keyframes preloaderPulse { 50% { transform: scale(0.92); opacity: 0.7; } }
+.preloader__bar {
+    position: absolute;
+    bottom: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 3px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.12);
+    overflow: hidden;
+}
+.preloader__bar span {
+    display: block;
+    height: 100%;
+    width: 40%;
+    background: var(--grad);
+    border-radius: 3px;
+    animation: preloaderBar 1.1s ease-in-out infinite;
+}
+@keyframes preloaderBar { 0% { transform: translateX(-110%); } 100% { transform: translateX(350%); } }
+
+/* ---------- Прогрес прокрутки ---------- */
+.scroll-progress {
+    position: fixed;
+    top: 0; left: 0;
+    z-index: 12000;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #ffd700, #ff5e62);
+    transform: scaleX(0);
+    transform-origin: left;
+    pointer-events: none;
+}
+
+/* ---------- Поява секцій ---------- */
+.reveal {
+    opacity: 0;
+    transform: translateY(34px);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+.reveal.is-visible { opacity: 1; transform: none; }
+
+/* ---------- Заголовки секцій ---------- */
+.page-section h2.section-heading::after {
+    content: '';
+    display: block;
+    width: 64px;
+    height: 4px;
+    margin: 14px auto 0;
+    border-radius: 4px;
+    background: var(--grad);
+    animation: headingLine 1s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+}
+@keyframes headingLine { from { width: 0; } to { width: 64px; } }
+.page-section#lang h2.section-heading::after,
+.page-section#reviews h2.section-heading::after,
+.page-section#faq h2.section-heading::after { background: var(--grad); }
+
+/* ---------- Masthead (головний екран) ---------- */
+header.masthead { position: relative; overflow: hidden; }
+.masthead-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 46px 46px;
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+    mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+}
+.masthead-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 0;
+}
+.masthead-orb--1 {
+    width: 480px; height: 480px;
+    left: -120px; top: -140px;
+    background: rgba(255, 200, 0, 0.35);
+    animation: orbFloat 16s ease-in-out infinite;
+}
+.masthead-orb--2 {
+    width: 420px; height: 420px;
+    right: -100px; bottom: -140px;
+    background: rgba(255, 94, 98, 0.28);
+    animation: orbFloat 20s ease-in-out infinite reverse;
+}
+@keyframes orbFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(40px, 30px) scale(1.1); }
+}
+header.masthead .container { position: relative; z-index: 2; }
+.masthead-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+.masthead-actions .btn { border-radius: 999px; box-shadow: 0 18px 40px -18px rgba(255, 138, 0, 0.7); }
+.masthead-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 28px;
+    padding: 8px 20px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #ffc800;
+    border: 1px solid rgba(255, 200, 0, 0.4);
+    border-radius: 999px;
+    background: rgba(255, 200, 0, 0.08);
+    backdrop-filter: blur(4px);
+}
+.masthead-badge::before {
+    content: '';
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #ffc800;
+    box-shadow: 0 0 0 0 rgba(255, 200, 0, 0.6);
+    animation: dotPulse 1.6s ease infinite;
+}
+@keyframes dotPulse { 70% { box-shadow: 0 0 0 10px rgba(255, 200, 0, 0); } }
+
+/* ---------- Navbar: активний пункт ---------- */
+#mainNav .navbar-nav .nav-item .nav-link { position: relative; }
+#mainNav .navbar-nav .nav-item .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 50%; bottom: 4px;
+    width: 0; height: 2px;
+    background: var(--grad);
+    border-radius: 2px;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+#mainNav .navbar-nav .nav-item .nav-link.active::after,
+#mainNav .navbar-nav .nav-item .nav-link:hover::after { width: 70%; }
+
+/* ---------- Кнопки: блик ---------- */
+.btn-primary { position: relative; overflow: hidden; }
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -80%;
+    width: 50%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.5s ease;
+}
+.btn-primary:hover::after { left: 130%; }
+
+/* ---------- Статистика ---------- */
+.stat-card .stat-number {
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.stat-card:hover .stat-icon { animation: iconBounce 0.6s ease; }
+@keyframes iconBounce { 0%, 100% { transform: translateY(0); } 40% { transform: translateY(-8px); } }
+
+/* ---------- Tilt (3D-нахил карток) ---------- */
+.tilt {
+    transform-style: preserve-3d;
+    transition: transform 0.25s ease;
+    will-change: transform;
+}
+.tilt .stat-icon, .tilt .stat-number, .tilt .stat-title { transform: translateZ(26px); }
+
+/* ---------- Акцент відгуків ---------- */
+.review-card { position: relative; overflow: hidden; }
+.review-card::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 200, 0, 0.18), transparent 70%);
+}
+
+/* ---------- FAQ ---------- */
+.faq-question-text { position: relative; }
+
+/* ---------- Кнопка «нагору» ---------- */
+.to-top {
+    position: fixed;
+    right: 24px; bottom: 26px;
+    z-index: 9000;
+    width: 52px; height: 52px;
+    display: grid;
+    place-items: center;
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ffd700, #ff5e62);
+    color: #111;
+    font-size: 18px;
+    box-shadow: 0 14px 30px -12px rgba(255, 138, 0, 0.8);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(14px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+.to-top.is-visible { opacity: 1; visibility: visible; transform: none; }
+.to-top:hover { transform: translateY(-3px) scale(1.05); }
+.to-top:active { transform: translateY(0); }
+
+/* ---------- Фонові візерунки секцій ---------- */
+.page-section#lang { position: relative; }
+.page-section#lang::before {
+    content: '';
+    position: absolute;
+    width: 380px; height: 380px;
+    top: 60px; right: -140px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 200, 0, 0.1), transparent 70%);
+    pointer-events: none;
+}
+
+/* ---------- Бейдж «ще +60 мов» ---------- */
+.lang-more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 46px 0 6px;
+    font-family: "Montserrat", sans-serif;
+}
+.lang-more__card {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    max-width: 100%;
+    padding: 28px 40px;
+    border-radius: 22px;
+    border: 1px solid transparent;
+    background:
+        linear-gradient(#fff, #fff) padding-box,
+        linear-gradient(120deg, #ffd700, #ff8a00, #ff5e62) border-box;
+    box-shadow: 0 24px 50px -28px rgba(255, 138, 0, 0.55);
+}
+.lang-more__icon {
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--grad);
+    color: #fff;
+    font-size: 24px;
+    box-shadow: 0 10px 24px -10px rgba(255, 138, 0, 0.8);
+}
+.lang-more__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+.lang-more__title {
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: #212529;
+    white-space: nowrap;
+}
+.lang-more__title strong {
+    font-size: 1.9rem;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.lang-more__subtitle {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #8a8f98;
+    white-space: nowrap;
+}
+@media (max-width: 576px) {
+    .lang-more__title, .lang-more__subtitle { white-space: normal; }
+}
+
+/* ---------- Доступність ---------- */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .preloader__logo, .preloader__bar span, .masthead-orb, .masthead-badge::before,
+    .btn-primary::after, .stat-card:hover .stat-icon { animation: none !important; }
+    .tilt { transform: none !important; }
+}
