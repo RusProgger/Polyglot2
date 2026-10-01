@@ -22,7 +22,7 @@ if (strlen($phone) !== 9) {
 $phone = '+380' . $phone;
 
 
-$to = 'kakoito@mail.ru';
+$to = 'juliaads22@gmail.com';
 
 $subject = 'Заявка на обратный звонок';
 
