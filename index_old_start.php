@@ -50,18 +50,9 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
-        <!-- Upgrade: прелоадер, анімації, ефекти -->
         <link href="css/upgrade.css" rel="stylesheet" />
     </head>
     <body id="page-top">
-        <!-- Прелоадер -->
-        <div class="preloader" id="preloader" aria-hidden="true">
-            <div class="preloader__logo">Poly<span>glot</span></div>
-            <div class="preloader__bar"><span></span></div>
-        </div>
-
-        <!-- Прогресс прокрутки -->
-        <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
@@ -84,17 +75,10 @@
         </nav>
         <!-- Masthead-->
         <header class="masthead" id="home">
-            <span class="masthead-orb masthead-orb--1" aria-hidden="true"></span>
-            <span class="masthead-orb masthead-orb--2" aria-hidden="true"></span>
-            <div class="masthead-grid" aria-hidden="true"></div>
             <div class="container">
                 <!-- <div class="masthead-subheading">Професійний переклад — якісно, швидко та точно.</div> -->
                 <div class="masthead-heading">Перекладаємо документи, тексти та інші матеріали швидко й професійно.</div>
-                <div class="masthead-actions">
-                    <a class="btn btn-primary btn-xl text-uppercase" href="#contact">Замовити переклад</a>
-                    <a class="btn btn-outline-light btn-xl text-uppercase" href="#lang">Наші мови</a>
-                </div>
-                <span class="masthead-badge">Понад 60 мов світу</span>
+                <a class="btn btn-primary btn-xl text-uppercase" href="#contact">Замовити переклад</a>
             </div>
         </header>
         <!-- Services-->
@@ -111,7 +95,7 @@
                             <i class="fas fa-pen-fancy fa-stack-1x fa-inverse"></i>
                         </span>
                         <h4 class="my-3">Письмовий переклад на будь-яку тематику</h4>
-                        <p class="text-muted">Перекладаємо технічні, юридичні, фінансові та медичні тексти понад 60 мов, зберігаючи точність термінології та зміст оригіналу.</p>
+                        <p class="text-muted">Перекладаємо технічні, юридичні, фінансові та медичні тексти понад 5 мовами, зберігаючи точність термінології та зміст оригіналу.</p>
                     </div>
                     <div class="col-md-4">
                         <span class="fa-stack fa-4x">
@@ -138,7 +122,7 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Мови перекладу</h2>
-                    <h3 class="section-subheading text-muted">Перекладаємо тексти понад 60 мов для особистих, професійних та бізнес-потреб.</h3>
+                    <h3 class="section-subheading text-muted">Перекладаємо тексти понад 5 мовами для особистих, професійних та бізнес-потреб.</h3>
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-sm-6 mb-4">
@@ -213,15 +197,6 @@
                             </div>
                         </div>
                     </div>
-                    <h3 class="lang-more">
-                        <span class="lang-more__card">
-                            <span class="lang-more__icon" aria-hidden="true"><i class="fas fa-globe"></i></span>
-                            <span class="lang-more__content">
-                                <span class="lang-more__title">та ще <strong>+60</strong> мов світу</span>
-                                <span class="lang-more__subtitle">бізнес · фінанси · медицина · юриспруденція · технічна</span>
-                            </span>
-                        </span>
-                    </h3>
                 </div>
             </div>
         </section>
@@ -268,7 +243,7 @@
                             </div>
 
                             <div class="stat-number">
-                                3500+
+                                2500+
                             </div>
 
                             <div class="stat-title">
@@ -291,15 +266,15 @@
                             </div>
 
                             <div class="stat-number">
-                                100%
+                                98%
                             </div>
 
                             <div class="stat-title">
-                                Індивідуальний підхід
+                                Задоволених клієнтів
                             </div>
 
                             <div class="stat-description">
-                                Уважно враховуємо особливості кожного проєкту та ваші потреби.
+                                Цінуємо довіру кожного клієнта та якість нашої роботи.
                             </div>
 
                         </div>
@@ -310,24 +285,23 @@
                         <div class="stat-card">
 
                             <div class="stat-icon">
-                                <i class="fas fa-shield-alt"></i>
+                                <i class="fas fa-language"></i>
                             </div>
 
                             <div class="stat-number">
-                                100%
+                                +60
                             </div>
 
                             <div class="stat-title">
-                                Гарантія якості
+                                Мов перекладу
                             </div>
 
                             <div class="stat-description">
-                                Гарантуємо високу якість виконання та відповідність результату вашим вимогам.
+                                Перекладаємо тексти та документи шістьма мовами.
                             </div>
 
                         </div>
                     </div>
-
 
                     <!-- Роки -->
                     <div class="col-lg-4 col-md-6 mb-4">
@@ -338,7 +312,7 @@
                             </div>
 
                             <div class="stat-number">
-                                5+
+                                3+
                             </div>
 
                             <div class="stat-title">
@@ -376,8 +350,7 @@
                         </div>
                     </div>
 
-                </div>
-                </div>
+                </div> 
         </section>
 
         <!-- Reviews -->
@@ -713,7 +686,7 @@
                             <div class="faq-answer">
                                 <div class="faq-answer-inner">
                                     Ми виконуємо переклади українською, англійською,
-                                    німецькою, польською, італійською та іспанською мовами та ще <strong>+60</strong> мов.
+                                    німецькою, польською, італійською та іспанською мовами.
                                 </div>
                             </div>
 
@@ -907,89 +880,88 @@
                 <form id="contactForm" action="form-send.php" method="POST">
 
                     <div class="simple-contact-form">
-                
+
                         <div class="simple-field">
                             <label for="name">Ваше ім’я</label>
-                
+
                             <input
                                 id="name"
-                                name="name"
                                 type="text"
                                 placeholder="Введіть ваше ім’я"
                                 required
                             >
-                
+
                             <div class="simple-error">
                                 Потрібно вказати ім’я.
                             </div>
                         </div>
-                
+
                         <div class="simple-field">
                             <label for="email">Email</label>
-                
+
                             <input
                                 id="email"
-                                name="email"
                                 type="email"
                                 placeholder="example@gmail.com"
                                 required
                             >
-                
+
                             <div class="simple-error">
                                 Введіть коректну електронну адресу.
                             </div>
                         </div>
-                
+
                         <div class="simple-field">
                             <label for="phone">Номер телефону</label>
-                
+
                             <div class="simple-phone">
+
                                 <span>+380</span>
-                
+
                                 <input
                                     id="phone"
-                                    name="phone"
                                     type="tel"
                                     placeholder="501234567"
                                     maxlength="9"
                                     inputmode="numeric"
                                     required
                                 >
+
                             </div>
-                
+
                             <div class="simple-error">
                                 Введіть номер телефону з 9 цифр.
                             </div>
                         </div>
-                
+
                         <div class="simple-field">
                             <label for="message">Ваше повідомлення</label>
-                
+
                             <textarea
                                 id="message"
-                                name="message"
                                 placeholder="Напишіть ваше повідомлення..."
                                 required
                             ></textarea>
-                
+
                             <div class="simple-error">
                                 Потрібно вказати повідомлення.
                             </div>
                         </div>
-                
+
+
                         <div class="simple-submit">
                             <button
                                 id="submitButton"
                                 type="submit"
-                                class="btn btn-primary btn-xl text-uppercase">
+                                class="btn btn-primary btn-xl text-uppercase"
+                            >
                                 Надіслати повідомлення
                             </button>
                         </div>
-                
-                    </div>
-                
-                </form>
 
+                    </div>
+
+                </form>
 
                 <!-- Modal-->
 
@@ -1064,7 +1036,6 @@
                         <span>+380</span>
                         <input
                             type="tel"
-                            name="phone"
                             id="callbackPhone"
                             placeholder="50 123 45 67"
                             maxlength="9"
@@ -1131,12 +1102,6 @@
         <script src="js/contacts.js"></script>
         <script src="js/callback.js"></script>
         <script src="js/faq.js"></script>
-        <!-- Upgrade: прелоадер, анимації, лічильники -->
-        <script src="js/upgrade.js"></script>
-
-        <!-- Кнопка «нагору» -->
-        <button class="to-top" id="toTop" type="button" aria-label="Нагору">
-            <i class="fas fa-arrow-up"></i>
-        </button>
+    
     </body>
 </html>
